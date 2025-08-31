@@ -1,5 +1,5 @@
 <div class="d-none d-md-block">
-  <button type="button" class="btn btn-lg btn-dark position-relative"
+  <button type="button" class="btn btn-lg btn-dark position-relative"  #popover="ngbPopover"
 	[ngbPopover]="cartContent" [popperOptions]="popperOptions" autoClose="outside" popoverClass="cart-content-popover"
 	popoverTitle="Cart Items"> 
           <b><i class="bi bi-cart"></i></b>
@@ -9,7 +9,7 @@
 </button>
 
 <ng-template #cartContent>
-  <app-cart-content></app-cart-content>
+  <app-cart-content [popOver]="popover"></app-cart-content>
 </ng-template>
 </div>
 

@@ -1,0 +1,32 @@
+.message {
+    width: 100vw;
+    height: 80vh;
+}
+
+@media (min-width : 992px) {
+    .message {
+        width: 80vw;
+        height: 84vh;
+    }
+}
+
+.message {
+    background-image: url('/bbburst.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.divTextMessage {
+    top: 30%;
+    position: relative;
+}
+
+.divTextMessage label {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+
+.divTextMessage p {
+    font-size: 42;
+}

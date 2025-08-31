@@ -1,12 +1,8 @@
 header{
-    background-color: #f2f7fd;
+    background-color: transparent;
     border-bottom: 2px solid #e1e1e1;
-    background-image: url('/ffflurry.svg');
+    background-image: url('/Angular-ECommerce/ffflurry.svg');
     background-size: contain;
-}
-
-main{
-    padding-bottom:100px;
 }
 
 #divRouterOutlet {

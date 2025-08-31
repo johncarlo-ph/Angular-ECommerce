@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
-import { IProduct } from '../../../core/interfaces/product.interface';
+import { Component, OnDestroy } from '@angular/core';
 import { CartService } from '../../../core/services/cart.service';
 import { NgbModal, NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
-import { ProductPriceRangeComponent } from "../product-price-range/product-price-range.component";
 import { CartContentComponent } from "../cart-content/cart-content.component";
 import { Options } from '@popperjs/core';
+import { CartContentModalComponent } from '../cart-content-modal/cart-content-modal.component';
 
 @Component({
   selector: 'app-cart-button',
@@ -13,20 +12,15 @@ import { Options } from '@popperjs/core';
   styleUrl: './cart-button.component.css',
   standalone: true
 })
-export class CartButtonComponent {
+export class CartButtonComponent{
 
   constructor(private cartService: CartService, private modalService: NgbModal) { }
-
-  get cartItems() {
-    return this.cartService.cartItems;
-  }
-
   get cartItemCount() {
-    return this.cartService.cartItems.length;
+    return this.cartService.cartItems().length;
   }
 
   open(){
-    const modalRef = this.modalService.open(CartContentComponent);
+    this.cartService.modalRef = this.modalService.open(CartContentModalComponent);
   }
 
   popperOptions = (options: Partial<Options>) => {
@@ -48,7 +42,6 @@ export class CartButtonComponent {
 
     // first update callback
     options.onFirstUpdate = (state) => {
-      console.log('onFirstUpdate', state);
       if (state.elements?.arrow) {
         state.elements.arrow.style.display = 'none';
       }

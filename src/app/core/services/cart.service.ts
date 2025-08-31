@@ -1,19 +1,36 @@
-import { computed, Injectable, signal } from '@angular/core';
+import { computed, effect, Injectable, signal } from '@angular/core';
 import { IProduct } from '../interfaces/product.interface';
 import { ICartItem } from '../interfaces/cart-item.interface';
+import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
   private _cartItems = signal<Array<ICartItem>>([]);
+  modalRef: NgbModalRef | undefined;
   
+  constructor(){
+    if(localStorage.getItem('cart-items') != null){
+      this._cartItems.set(JSON.parse(localStorage.getItem('cart-items')!) as Array<ICartItem>);
+    }
+
+    effect(()=>{
+      let cartItems = this._cartItems();
+      localStorage.setItem('cart-items', JSON.stringify(cartItems));
+    })
+  }
+
   get cartItems() {
     return this._cartItems.asReadonly();
   }
 
-  get cartTotal(){
+  cartTotal = computed(()=>{
     return this._cartItems().reduce((accumulator, current)=> accumulator + (current.price * current.quantity), 0);
+  });
+
+  clearCart(){
+    this._cartItems.set([]);
   }
 
   addToCart(product: IProduct) {
@@ -47,8 +64,27 @@ export class CartService {
       this._cartItems.update(items=> items.filter(item=> item.productId != cartItem.productId));
     }
   }
+  
+  qtySubtract(item: ICartItem){
+      if(item.quantity <= 1){
+        let remove = window.confirm("This will remove the product on your cart. Do you want to proceed?");
+  
+        if(remove){
+          this.removeFromCart(item);
+        }
+      }
+      else{
+        item.quantity -= 1;
+        this.updateQuantity(item);
+      }
+  }
+  
+  qtyAdd(item: ICartItem){
+       item.quantity += 1;
+       this.updateQuantity(item);
+  }
 
-  updateQuantity(cartItem: ICartItem){
+  private updateQuantity(cartItem: ICartItem){
     this._cartItems.update(items =>
         items.map(item=>
           item.productId == cartItem.productId ? { ...item, quantity: item.quantity} : item

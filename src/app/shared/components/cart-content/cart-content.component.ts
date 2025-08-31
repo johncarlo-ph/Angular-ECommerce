@@ -1,8 +1,10 @@
-import { Component,signal,computed, WritableSignal, ChangeDetectionStrategy } from '@angular/core';
+import { Component,signal,computed, WritableSignal, ChangeDetectionStrategy,input } from '@angular/core';
 import { CartService } from '../../../core/services/cart.service';
 import { IProduct } from '../../../core/interfaces/product.interface';
 import { ICartItem } from '../../../core/interfaces/cart-item.interface';
 import { CurrencyPipe } from '@angular/common';
+import { Router } from '@angular/router';
+import { NgbActiveModal, NgbPopover} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-cart-content',
@@ -14,28 +16,16 @@ import { CurrencyPipe } from '@angular/common';
 })
 export class CartContentComponent {
   cartService:CartService;
+  popOver = input<NgbPopover | undefined>();
 
-  constructor(private _cartService: CartService){
+  constructor(private _cartService: CartService, private router: Router){
     this.cartService = _cartService;
   }
-  
-  qtySubtract(item: ICartItem){
-    if(item.quantity <= 1){
-      let remove = window.confirm("This will remove the product on your cart. Do you want to proceed?");
 
-      if(remove){
-        this.cartService.removeFromCart(item);
-      }
-    }
-    else{
-      item.quantity -= 1;
-      this.cartService.updateQuantity(item);
-    }
-  }
-
-  qtyAdd(item: ICartItem){
-     item.quantity += 1;
-     this.cartService.updateQuantity(item);
+  checkout(){
+    this.cartService.modalRef?.close();
+    this.popOver()?.close();
+    this.router.navigate(['/checkout']);
   }
 }
 

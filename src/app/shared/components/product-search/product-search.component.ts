@@ -25,6 +25,10 @@ export class ProductSearchComponent {
   }
 
   searchProduct(){
+    if(this.productService.titleSearch.length == 0 && this.searchString().length ==0){
+      return;
+    }
+
     if(this.searchString().length > 0){
       this.hasSearch.set(true);
     }

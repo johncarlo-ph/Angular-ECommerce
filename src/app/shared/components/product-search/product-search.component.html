@@ -1,12 +1,17 @@
-<div class="d-flex justify-content-between mb-3">
-    <div>
-        <input type="search" id="txtSearch" class="form-control form-control-lg pt-2 pb-2" maxlength="30" placeholder="Search product"
-            aria-label="Search product" aria-describedby="btn-search" [(ngModel)]="searchString" (ngModelChange)="searchStringChanged()" (search)="searchProduct()">
-    </div>
-    <div class="d-flex align-items-center">
-        @if(this.hasSearch()){
-            <span id="searchResultPlaceholder" class="text-primary fw-bold">Displaying search result for "{{this.searchString()}}"</span>
-        }
-    </div>
+<div class="row mb-3">
+    <div class="col-11 col-md-6">
+        <div class="input-group">
+            <input type="search" class="form-control form-control-lg pt-2 pb-2" maxlength="30"
+            placeholder="Search product" aria-label="Search product" aria-describedby="btn-search"
+            [(ngModel)]="searchString" (ngModelChange)="searchStringChanged()" (search)="searchProduct()">
+            <button class="btn btn-dark btn-lg" type="button" (click)="searchProduct()"><i class="bi bi-search"></i></button>
+        </div>
+        
 
+    </div>
+    @if(this.hasSearch()){
+    <div class="col-12 mt-3">
+        <span class="text-primary fw-bold ">Displaying search result for "{{this.searchString()}}"</span>
+    </div>
+    }
 </div>

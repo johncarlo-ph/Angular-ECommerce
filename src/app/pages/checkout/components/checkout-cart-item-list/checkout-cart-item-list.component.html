@@ -1,5 +1,5 @@
-<div>
-    <div class=" cart-list">
+<div class="card mt-3">
+    <div class="card-body">
         @for(item of cartService.cartItems();track item.productId){
         <div class="row">
             <div class="col-3">
@@ -23,17 +23,4 @@
         <hr>
         }
     </div>
-
-    @if(cartService.cartItems().length > 0){
-    <div class="d-flex justify-content-between mt-3">
-        <h4>
-            Total: {{cartService.cartTotal() | currency}}
-        </h4>
-        <button class="btn btn-success" (click)="checkout()">Checkout</button>
-    </div>
-    }
-    @else{
-    No items in cart
-    }
-
 </div>

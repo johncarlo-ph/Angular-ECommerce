@@ -1,7 +1,7 @@
 <div class="mt-3">
     <h4><i class="bi bi-tag"></i> Price</h4>
 </div>
-<div class="mt-3">
+<div class="mt-3 d-flex">
     <div class="d-none d-md-block">
         <ul class="">
             <li class="list-group-item h5"><label class="btn btn-outline-dark" (click)="setPriceRange(PriceRange.fiveToTen)" [ngClass]="{'active' : this.currentPriceRange == PriceRange.fiveToTen}">$5 - $10</label></li>
@@ -9,18 +9,18 @@
             </li>
             <li class="list-group-item h5"><label class="btn btn-outline-dark"  (click)="setPriceRange(PriceRange.twentyToFifty)" [ngClass]="{'active': this.currentPriceRange == PriceRange.twentyToFifty}">$20 - $50</label>
             </li>
-            <li class="list-group-item h5" ><label class="btn btn-outline-dark" (click)="setPriceRange(PriceRange.FiftyUp)" [ngClass]="{'active': this.currentPriceRange == PriceRange.FiftyUp}">$50 - $100+</label>
+            <li class="list-group-item h5" ><label class="btn btn-outline-dark" (click)="setPriceRange(PriceRange.FiftyUp)" [ngClass]="{'active': this.currentPriceRange == PriceRange.FiftyUp}">$50+</label>
             </li>
         </ul>
     </div>
-    <div class="d-md-none">
-        <div class="d-flex justify-content-center align-items-center flex-wrap gap-2 row-gap-0">
+    <div class="d-md-none ms-3">
+        <div class="d-flex justify-content-start align-items-center flex-wrap gap-2 row-gap-0">
             <li class="list-group-item h5" ><label for="priceRange5to10" (click)="setPriceRange(PriceRange.fiveToTen)" class="btn btn-sm btn-outline-dark" [ngClass]="{'active': this.currentPriceRange == PriceRange.fiveToTen}">$5 - $10</label></li>
             <li class="list-group-item h5" ><label for="priceRange11to20" (click)="setPriceRange(PriceRange.tenToTwenty)" class="btn btn-sm btn-outline-dark" [ngClass]="{'active': this.currentPriceRange == PriceRange.tenToTwenty}">$10 - $20</label>
             </li>
             <li class="list-group-item h5" ><label for="priceRange20to50" (click)="setPriceRange(PriceRange.twentyToFifty)" class="btn btn-sm btn-outline-dark" [ngClass]="{'active': this.currentPriceRange == PriceRange.twentyToFifty}">$20 - $50</label>
             </li>
-            <li class="list-group-item h5" ><label for="priceRange50to100" (click)="setPriceRange(PriceRange.FiftyUp)" class="btn btn-sm btn-outline-dark" [ngClass]="{'active': this.currentPriceRange == PriceRange.FiftyUp}">$50 - $100+</label>
+            <li class="list-group-item h5" ><label for="priceRange50to100" (click)="setPriceRange(PriceRange.FiftyUp)" class="btn btn-sm btn-outline-dark" [ngClass]="{'active': this.currentPriceRange == PriceRange.FiftyUp}">$50+</label>
             </li>
         </div>
     </div>

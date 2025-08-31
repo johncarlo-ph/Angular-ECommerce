@@ -1,23 +1,23 @@
 @if(this.isLoading()){
-    <div class="d-flex justify-content-center flex-row" style="width: 100%;">
-        <div class="mt-5" style="width:100px;">
-<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+<div class="d-flex justify-content-center flex-row" style="width: 100%;">
+    <div class="mt-5" style="width:100px;">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
             <circle class="spin" cx="200" cy="200" fill="none" r="100" stroke-width="40" stroke="#2f3030"
                 stroke-dasharray="386 1400" stroke-linecap="round" />
         </svg>
-        </div>
-        
     </div>
+
+</div>
 
 }
 @else if (products().length == 0) {
 
-    <div class="text-danger fw-bold">
-        No products found
-    </div>
+<div class="text-danger fw-bold">
+    No products found
+</div>
 }
 @else {
-<div class="d-flex justify-content-start flex-wrap gap-3">
+<div class="d-flex justify-content-around flex-wrap gap-3">
     @for(product of products(); track product.id){
     <div class="card bg-transparent flex-item">
         <div class="card-body">
@@ -40,12 +40,16 @@
 
             <div class="mt-4">
                 <div class="row">
-                    <div class="col-6">
-                        <p class="h3 fw-bold">{{product.price | currency}}</p>
+                    <div class="col-6 d-flex justify-content-start align-items-center">
+                        <p class="h5 fw-bold">{{product.price | currency}}</p>
                     </div>
                     <div class="col-6 d-flex justify-content-end align-items-center">
-                        <button class="btn btn-dark" style="height: 45px;" (click)="addToCartClicked(product)">Add to
+                        <button class="btn-add-to-cart btn btn-dark d-none d-lg-block"
+                            (click)="addToCartClicked(product)">Add to
                             Cart</button>
+
+                        <button class="btn-add-to-cart btn btn-dark d-block d-lg-none"
+                            (click)="addToCartClicked(product)"><i class="bi bi-cart-plus"></i></button>
                     </div>
                 </div>
             </div>

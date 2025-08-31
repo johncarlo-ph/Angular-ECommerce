@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-end align-items-end mt-3 flex-column text-muted">
+    @if(cartService.cartItems().length > 0){
+        <table class="table">
+            <tr>
+                <td>Subtotal:</td>
+                <td>{{cartService.cartTotal() | currency}}</td>
+            </tr>
+             <tr>
+                <td>Shipping:</td>
+                <td>{{shippingCost | currency}}</td>
+            </tr>
+            <tr>
+                <td>Tax amount:</td>
+                <td>{{orderTaxAmount() | currency}}</td>
+            </tr>
+            <tr>
+                <td class="fw-bold">Grand total:</td>
+                <td class="fw-bold">{{orderTotal() | currency}}</td>
+            </tr>
+        </table>
+    }
+    @else{
+    No items in cart
+    }
+</div>

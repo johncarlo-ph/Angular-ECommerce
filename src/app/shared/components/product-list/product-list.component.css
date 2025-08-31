@@ -3,7 +3,7 @@
     width: 100%;
     vertical-align: middle;
     object-fit: cover;
-    height: 16rem;
+    max-height: 16rem;
     cursor: pointer;
     -webkit-transform: scale(1);
     transform: scale(1);
@@ -28,11 +28,17 @@
 
 .flex-item {
     flex-grow: 0 !important;
+    flex: 1 1 calc(50% - 20px);
+    margin-right: auto;
 }
 
-@media (min-width: 992px) {
-    .flex-item {
-        flex: 1 1 calc(50% - 20px);
+@media (min-width : 992px ) {
+    .product-image{
+        height: auto;
+    }
+
+    .h5{
+        font-size: 1.2rem !important;
     }
 }
 
