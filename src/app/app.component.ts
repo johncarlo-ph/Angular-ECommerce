@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { CartButtonComponent } from "./shared/components/cart-button/cart-button.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CartButtonComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

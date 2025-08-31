@@ -1,0 +1,22 @@
+<div class="d-none d-md-block">
+  <button type="button" class="btn btn-lg btn-dark position-relative"
+	[ngbPopover]="cartContent" [popperOptions]="popperOptions" autoClose="outside" popoverClass="cart-content-popover"
+	popoverTitle="Cart Items"> 
+          <b><i class="bi bi-cart"></i></b>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {{cartItemCount}}
+          </span>
+</button>
+
+<ng-template #cartContent>
+  <app-cart-content></app-cart-content>
+</ng-template>
+</div>
+
+<div class="d-sm-block d-md-none">
+  <button class="btn btn-lg btn-dark position-relative" (click)="open()"> 
+    <b><i class="bi bi-cart"></i></b>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {{cartItemCount}}
+          </span></button>
+</div>

@@ -1,0 +1,24 @@
+header{
+    background-color: #f2f7fd;
+    border-bottom: 2px solid #e1e1e1;
+    background-image: url('/ffflurry.svg');
+    background-size: contain;
+}
+
+main{
+    padding-bottom:100px;
+}
+
+#divRouterOutlet {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container{
+    max-width: 1900px !important;
+    font-family: urbanist,sans-serif;
+}
+
+#navbar-logo {
+    border-radius: 8px;
+}

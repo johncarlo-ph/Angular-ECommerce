@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-image: url('/bbblurry.svg');
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+.cart-content-popover {
+    width: 600px !important;
+    max-width: 600px !important;
+    margin-top:16px !important;
+}
+
+.cart-content-popover .popover-header{
+    background-color: #212529;
+    color:white;
+}

@@ -1,0 +1,59 @@
+.product-image {
+    border-radius: 14px;
+    width: 100%;
+    vertical-align: middle;
+    object-fit: cover;
+    height: 16rem;
+    cursor: pointer;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+.div-image{
+    overflow: hidden;border-radius: 14px;
+}
+
+.product-image:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.card {
+    width: 100%;
+    justify-self: center;
+    justify-items: center;
+}
+
+.flex-item {
+    flex-grow: 0 !important;
+}
+
+@media (min-width: 992px) {
+    .flex-item {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (min-width: 1400px) {
+    .flex-item {
+        flex: 1 1 calc(33.333% - 20px);
+    }
+}
+
+
+.link-dark {
+    cursor: pointer;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spin {
+    transform-origin: center;
+    animation: spin 1.5s linear infinite;
+}

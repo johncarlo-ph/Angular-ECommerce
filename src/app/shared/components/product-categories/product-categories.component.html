@@ -1,0 +1,24 @@
+<div class="mt-3">
+    <div>
+        <h4><i class="bi bi-boxes"></i> Categories</h4>
+    </div>
+    <div class="mt-3">
+        <div class="d-none d-md-block">
+            <ul class="list-group list-group-flush">
+                @for(category of categories;track category.id){
+                <li class="list-group-item hover-effect">
+                    <a [routerLink]="['/category', category.name]" class="text-dark link-no-underline"><div>{{category.name}}</div></a>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="d-sm-block d-md-none">
+            <ul class="d-flex justify-content-start flex-wrap row-gap-2 gap-1">
+                @for(category of categories;track category.id){
+                <li class="list-group-item"><a [routerLink]="['/category', category.name]"><span class="fs-6 badge rounded-pill bg-primary-subtle text-dark">{{category.name}}</span></a>
+                </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

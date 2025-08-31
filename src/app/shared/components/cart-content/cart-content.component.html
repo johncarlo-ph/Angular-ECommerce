@@ -1,0 +1,40 @@
+<div class="pt-2 ps-2 d-sm-block d-md-none bg-dark text-white">
+    <label class="h5">Cart Items</label>
+</div>
+<div class="p-2">
+    @for(item of cartService.cartItems();track item.productId){
+    <div class="row">
+        <div class="col-3">
+            <img src="{{item.image}}" class="product-image">
+        </div>
+        <div class="col-6 d-flex align-items-start justify-content-between flex-column">
+            <label class="h6">{{item.title}}</label>
+            <label class="h5">{{item.price | currency}}</label>
+        </div>
+        <div class="col-3 text-center d-flex align-items-center justify-content-center flex-column">
+            <span class="h6">Qty:</span>
+            <h3>{{item.quantity}}</h3>
+            <div>
+                <button class="btn btn-sm btn-dark btn-quantity" (click)="qtySubtract(item)"><i
+                        class="bi bi-dash"></i></button>&nbsp;
+                <button class="btn btn-sm btn-dark btn-quantity"><i class="bi bi-plus"
+                        (click)="qtyAdd(item)"></i></button>
+            </div>
+        </div>
+    </div>
+    <hr>
+    }
+
+    @if(cartService.cartItems().length > 0){
+    <div class="d-flex justify-content-between">
+        <h4>
+            Total: {{cartService.cartTotal | currency}}
+        </h4>
+        <button class="btn btn-success">Checkout</button>
+    </div>
+    }
+    @else{
+    No items in cart
+    }
+
+</div>

@@ -1,0 +1,18 @@
+.list-group-item{
+    cursor:pointer;
+    padding: 0px;
+    background: none;
+}
+
+.hover-effect:hover{
+    background-color: #ddd;
+}
+
+.link-no-underline{
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.link-no-underline div{
+    padding: 8px;
+}
