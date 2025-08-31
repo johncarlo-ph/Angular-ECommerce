@@ -17,20 +17,10 @@ export class ProductCategoriesComponent {
   isCollapsed = false;
 
   constructor(private categoryService: CategoryService) {
-    if (this.isLocalStorageAvailable && localStorage.getItem('categories') != null && localStorage.getItem('categories') != '') {
-      this.categories = JSON.parse(localStorage.getItem('categories')!);
-    }
-    else {
-      this.categoryService.getCategories().subscribe({
-        next: (categories) => {
-          this.categories = categories;
-          this.setLocalStorage();
-        }
-      })
-    }
-  }
-
-  setLocalStorage(){
-    localStorage.setItem('categories', JSON.stringify(this.categories))
+    this.categoryService.getCategories().subscribe({
+      next: (categories) => {
+        this.categories = categories;
+      }
+    })
   }
 }

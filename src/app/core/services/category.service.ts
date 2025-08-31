@@ -10,7 +10,6 @@ export class CategoryService {
   constructor(private http: HttpClient) { }
 
   getCategories(){
-    localStorage.setItem('categories','');
     return this.http.get<Array<ICategory>>('https://api.escuelajs.co/api/v1/categories');
   }
 }
