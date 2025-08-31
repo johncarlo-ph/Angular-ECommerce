@@ -3,6 +3,7 @@ import { ProductService } from '../../../core/services/product.service';
 import { IProduct } from '../../../core/interfaces/product.interface';
 import { CurrencyPipe } from '@angular/common';
 import { CartService } from '../../../core/services/cart.service';
+import { PageAlertService } from '../../../core/services/page-alert.service';
 
 @Component({
   selector: 'app-product-list',
@@ -16,7 +17,7 @@ export class ProductListComponent implements OnInit{
   products = signal<Array<IProduct>>([]);
   isLoading = signal<boolean>(true);
   
-  constructor(private productService: ProductService, private cartService: CartService){}
+  constructor(private productService: ProductService, private cartService: CartService, private alertService: PageAlertService){}
 
   ngOnInit(): void {
     this.productService.products.subscribe({
@@ -35,6 +36,7 @@ export class ProductListComponent implements OnInit{
 
   addToCartClicked(product: IProduct){
     this.cartService.addToCart(product);
+    this.alertService.alertMessage('Item added to cart', 5000);
   }
 
 }

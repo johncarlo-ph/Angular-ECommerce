@@ -26,6 +26,11 @@
     justify-items: center;
 }
 
+.card-footer{
+    background-color: transparent;
+    border:none;
+}
+
 .flex-item {
     flex-grow: 0 !important;
     flex: 1 1 calc(50% - 20px);
@@ -37,7 +42,7 @@
         height: auto;
     }
 
-    .h5{
+    .h6{
         font-size: 1.2rem !important;
     }
 }

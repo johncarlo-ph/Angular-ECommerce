@@ -1,0 +1,15 @@
+#div-alert {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    width: 90vw;
+    word-wrap: break-word;
+}
+
+@media (min-width: 768px) {
+    #div-alert {
+        width: 400px;
+    }
+}
