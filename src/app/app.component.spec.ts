@@ -20,11 +20,11 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('ecommerce-angular');
   });
 
-  it('should display "JC Merchandise" in the navbar', () => {
+  it('should display "JC Online Store" in the navbar', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.navbar-brand span')?.textContent).toContain('JC Merchandise');
+    expect(compiled.querySelector('.navbar-brand span')?.textContent).toContain('JC Online Store');
   });
 
   it('should render footer component', () => {

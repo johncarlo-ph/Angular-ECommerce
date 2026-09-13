@@ -28,15 +28,15 @@ describe('FooterComponent', () => {
   it('should render footer with contact information', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.footer')).toBeTruthy();
-    expect(compiled.textContent).toContain('JC Merchandise');
+    expect(compiled.textContent).toContain('JC Online Store');
     expect(compiled.textContent).toContain('123 Commerce Street');
     expect(compiled.textContent).toContain('+1 (555) 123-4567');
-    expect(compiled.textContent).toContain('https://www.jcmerchandise.com');
+    expect(compiled.textContent).toContain('https://www.jconlinestore.com');
   });
 
   it('should render copyright with dynamic year', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const currentYear = new Date().getFullYear();
-    expect(compiled.textContent).toContain(`© ${currentYear} JC Merchandise`);
+    expect(compiled.textContent).toContain(`© ${currentYear} JC Online Store`);
   });
 });
