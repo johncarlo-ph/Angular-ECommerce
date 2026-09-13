@@ -1,0 +1,13 @@
+.footer {
+  border-top: 2px solid #e1e1e1;
+  background-color: #f8f9fa;
+}
+
+.footer h6 {
+  margin-bottom: 0.75rem;
+  color: #212529;
+}
+
+.footer a:hover {
+  color: #212529 !important;
+}
