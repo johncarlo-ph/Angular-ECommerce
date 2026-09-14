@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { CartContentComponent } from "../cart-content/cart-content.component";
+import { CartService } from '../../../core/services/cart.service';
 
 @Component({
   selector: 'app-cart-content-modal',
@@ -12,8 +13,12 @@ import { CartContentComponent } from "../cart-content/cart-content.component";
 export class CartContentModalComponent {
   cartModal: NgbActiveModal;
 
-  constructor(private modal: NgbActiveModal){
+  constructor(private modal: NgbActiveModal, private cartService: CartService){
     this.cartModal = modal;
+  }
+
+  get cartItemCount() {
+    return this.cartService.cartItems().length;
   }
 
   close(){

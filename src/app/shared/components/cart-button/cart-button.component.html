@@ -1,7 +1,7 @@
 <div class="d-none d-md-block">
   <button type="button" class="btn btn-lg btn-dark position-relative"  #popover="ngbPopover"
 	[ngbPopover]="cartContent" [popperOptions]="popperOptions" autoClose="outside" popoverClass="cart-content-popover"
-	popoverTitle="Cart Items"> 
+	[popoverTitle]="'Cart Items (' + cartItemCount + ')'"> 
           <b><i class="bi bi-cart"></i></b>
           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
             {{cartItemCount}}
