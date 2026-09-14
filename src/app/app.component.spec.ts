@@ -20,11 +20,11 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('ecommerce-angular');
   });
 
-  it('should display shop name "JS Store Sample"', () => {
+  it('should display shop name "JC Shop 1"', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     const shopName = compiled.querySelector('.navbar-brand span');
-    expect(shopName?.textContent).toContain('JS Store Sample');
+    expect(shopName?.textContent).toContain('JC Shop 1');
   });
 });
