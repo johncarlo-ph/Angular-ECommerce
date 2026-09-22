@@ -68,3 +68,7 @@
     transform-origin: center;
     animation: spin 1.5s linear infinite;
 }
+
+.pagination .page-link {
+    color: #fff;
+}

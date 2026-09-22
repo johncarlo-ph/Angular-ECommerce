@@ -18,7 +18,7 @@
 }
 @else {
 <div class="d-flex justify-content-around flex-wrap gap-3">
-    @for(product of products(); track product.id){
+    @for(product of pagedProducts(); track product.id){
     <div class="card bg-transparent flex-item">
         <div class="card-body">
             <div class="div-image">
@@ -59,4 +59,22 @@
     }
 
 </div>
+
+@if(totalPages() > 1){
+<nav class="d-flex justify-content-center mt-4" aria-label="Product pages" data-bs-theme="dark">
+    <ul class="pagination">
+        <li class="page-item" [class.disabled]="currentPage() === 1">
+            <button class="page-link" (click)="goToPage(currentPage() - 1)">Previous</button>
+        </li>
+        @for(page of pageNumbers(); track page){
+        <li class="page-item" [class.active]="page === currentPage()">
+            <button class="page-link" (click)="goToPage(page)">{{page}}</button>
+        </li>
+        }
+        <li class="page-item" [class.disabled]="currentPage() === totalPages()">
+            <button class="page-link" (click)="goToPage(currentPage() + 1)">Next</button>
+        </li>
+    </ul>
+</nav>
+}
 }
